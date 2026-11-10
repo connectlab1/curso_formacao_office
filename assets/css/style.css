@@ -1,0 +1,138 @@
+/* ==========================================================================
+ *  Style.css - Layouts Específicos & Componentes do Projeto
+ *  Formação Pacote Office
+ *  ========================================================================== */
+
+/* 1. Importação Obrigatória dos Tokens e Variáveis de Tema */
+@import url('./theme.css');
+
+/* --------------------------------------------------------------------------
+ *  2. Regras Globais de Reset para Iframes e Layout Fluid
+ *  -------------------------------------------------------------------------- */
+
+/* Garante que nenhum iframe renderize bordas ou barras de rolagem internas */
+iframe {
+    display: block !important;
+    width: 100% !important;
+    border: none !important;
+    outline: none !important;
+    overflow: hidden !important;
+    background: transparent !important;
+}
+
+/* Impede o scroll no corpo interno dos arquivos hospedados na pasta data/ */
+body {
+    background-color: var(--bg-canvas);
+    color: var(--text-main);
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container de envolvente dos Iframes no index.html */
+.iframe-container,
+.iframe-wrapper {
+    position: relative;
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.5); /* bg-slate-900/50 */
+    border: 1px solid var(--border-color);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iframe-container:hover,
+.iframe-wrapper:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-glow);
+}
+
+/* --------------------------------------------------------------------------
+ *  3. Efeitos Visuais Especializados (Glow & Cards)
+ *  -------------------------------------------------------------------------- */
+
+/* Efeito de iluminação neon/glow para o card principal de checkout */
+.glow-effect {
+    position: relative;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+}
+
+.glow-effect::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.25;
+    filter: blur(12px);
+    transition: opacity 0.3s ease;
+}
+
+.glow-effect:hover::after {
+    opacity: 0.5;
+}
+
+/* Cartões de módulos reutilizáveis */
+.module-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-glow);
+}
+
+/* --------------------------------------------------------------------------
+ *  4. Estilização da Galeria de Depoimentos dos Alunos
+ *  -------------------------------------------------------------------------- */
+
+.testimonial-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    padding: 0.5rem;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testimonial-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-glow);
+}
+
+.testimonial-card:hover img {
+    transform: scale(1.02);
+}
+
+/* --------------------------------------------------------------------------
+ *  5. Ajustes de Responsividade
+ *  -------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+    .iframe-container,
+    .iframe-wrapper {
+        border-radius: 1rem;
+        padding: 0.25rem;
+    }
+}
