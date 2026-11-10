@@ -3,28 +3,14 @@
  *  Formação Pacote Office
  *  ========================================================================== */
 
-/* 1. Importação Obrigatória dos Tokens e Variáveis de Tema */
-@import url('./theme.css');
-
 /* --------------------------------------------------------------------------
- *  2. Regras Globais de Reset para Iframes e Layout Fluid
+ *  1. Regras Globais e Reset de Layout
  *  -------------------------------------------------------------------------- */
 
-/* Garante que nenhum iframe renderize bordas ou barras de rolagem internas */
-iframe {
-    display: block !important;
-    width: 100% !important;
-    border: none !important;
-    outline: none !important;
-    overflow: hidden !important;
-    background: transparent !important;
-}
-
-/* Impede o scroll no corpo interno dos arquivos hospedados na pasta data/ */
 body {
-    background-color: var(--bg-canvas);
-    color: var(--text-main);
-    font-family: var(--font-primary);
+    background-color: #020617; /* Equivalente a bg-slate-950 */
+    color: #f1f5f9; /* Equivalente a text-slate-100 */
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -32,35 +18,16 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Container de envolvente dos Iframes no index.html */
-.iframe-container,
-.iframe-wrapper {
-    position: relative;
-    width: 100%;
-    background-color: rgba(15, 23, 42, 0.5); /* bg-slate-900/50 */
-    border: 1px solid var(--border-color);
-    border-radius: 1.5rem;
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.iframe-container:hover,
-.iframe-wrapper:hover {
-    border-color: var(--border-glow);
-    box-shadow: var(--shadow-glow);
-}
-
 /* --------------------------------------------------------------------------
- *  3. Efeitos Visuais Especializados (Glow & Cards)
+ *  2. Efeitos Visuais Especializados (Glow & Cards)
  *  -------------------------------------------------------------------------- */
 
 /* Efeito de iluminação neon/glow para o card principal de checkout */
 .glow-effect {
     position: relative;
     background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.8) 100%);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(51, 65, 85, 0.8);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
@@ -68,7 +35,7 @@ body {
     content: '';
     position: absolute;
     inset: -1px;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-indigo));
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
     border-radius: inherit;
     z-index: -1;
     opacity: 0.25;
@@ -82,8 +49,8 @@ body {
 
 /* Cartões de módulos reutilizáveis */
 .module-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    background-color: rgba(15, 23, 42, 1);
+    border: 1px solid rgba(51, 65, 85, 0.8);
     border-radius: 1rem;
     padding: 1.5rem;
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
@@ -91,17 +58,17 @@ body {
 
 .module-card:hover {
     transform: translateY(-3px);
-    border-color: var(--border-glow);
-    box-shadow: var(--shadow-glow);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.2);
 }
 
 /* --------------------------------------------------------------------------
- *  4. Estilização da Galeria de Depoimentos dos Alunos
+ *  3. Estilização da Galeria de Depoimentos dos Alunos
  *  -------------------------------------------------------------------------- */
 
 .testimonial-card {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    background-color: rgba(15, 23, 42, 1);
+    border: 1px solid rgba(51, 65, 85, 0.8);
     border-radius: 0.75rem;
     overflow: hidden;
     padding: 0.5rem;
@@ -117,22 +84,10 @@ body {
 }
 
 .testimonial-card:hover {
-    border-color: var(--border-glow);
-    box-shadow: var(--shadow-glow);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.2);
 }
 
 .testimonial-card:hover img {
     transform: scale(1.02);
-}
-
-/* --------------------------------------------------------------------------
- *  5. Ajustes de Responsividade
- *  -------------------------------------------------------------------------- */
-
-@media (max-width: 768px) {
-    .iframe-container,
-    .iframe-wrapper {
-        border-radius: 1rem;
-        padding: 0.25rem;
-    }
 }
